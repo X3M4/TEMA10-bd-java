@@ -18,7 +18,6 @@ public class ejercicio1 {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return c;
 	}
 	
