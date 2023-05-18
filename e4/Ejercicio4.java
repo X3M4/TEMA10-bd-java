@@ -1,19 +1,45 @@
-package e1;
+package e4;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
 
-public class Ejercicio1 {
+public class Ejercicio4 {
 	
-public static Connection c;
+	public static Connection c;
+	public static Statement stmt = null;
+	public static ResultSet rs = null;
 	
 	public static Connection conectaMySQL(String url, String user, String password) throws ClassNotFoundException {
-	
+		
 		try {
 			c = DriverManager.getConnection(url, user, password);
+			
+			//EJERCICIO 4
 			System.out.println("Conexión establecida con la BD...");
+			stmt = c.createStatement();
+			String sql = "select * from empleados";
+			rs = stmt.executeQuery(sql);
+			//VARIABLES
+			int id;
+			String nombre;
+			String apellido;
+			String puesto;
+			double salario;
+			
+			while(rs.next()) {
+				id = rs.getInt("id");
+				nombre = rs.getString("Nombre");
+				apellido = rs.getString("Apellidos");
+				puesto = rs.getString("Cargo");
+				salario = rs.getDouble("Salario");
+				
+				System.out.printf("ID: %s - Nombre: %s - Apellidos: %s - Cargo: %s - Salario: %1.2f€\n",
+						id, nombre, apellido, puesto, salario);
+			}
+			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
