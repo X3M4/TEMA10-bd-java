@@ -1,4 +1,4 @@
-package e4;
+package e5;
 
 import java.sql.Statement;
 import java.util.Scanner;
@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Ejercicio4 {
+public class Ejercicio5 {
 	
 	public static Connection c;
 	public static Statement stmt = null;
@@ -30,8 +30,8 @@ public class Ejercicio4 {
 			
 			System.out.println("Conexión establecida con la BD...");
 			stmt = c.createStatement();
-			String sql = "select * from empleados";
-			String sql2 = "select * from empleados where Salario > " + svalor;
+			//EJERCICIO 5: FILTRO POR SALARIO EN LA CONSULTA
+			String sql = "select * from empleados where Salario > " + svalor;
 			rs = stmt.executeQuery(sql);
 			//VARIABLES
 			int id;
