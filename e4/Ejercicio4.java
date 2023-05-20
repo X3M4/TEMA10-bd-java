@@ -31,7 +31,6 @@ public class Ejercicio4 {
 			System.out.println("Conexión establecida con la BD...");
 			stmt = c.createStatement();
 			String sql = "select * from empleados";
-			String sql2 = "select * from empleados where Salario > " + svalor;
 			rs = stmt.executeQuery(sql);
 			//VARIABLES
 			int id;
